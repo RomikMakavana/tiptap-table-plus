@@ -1,0 +1,1 @@
+# tiptap-table-options

@@ -1,0 +1,28 @@
+{
+  "name": "tiptap-table-plus",
+  "version": "1.0.0",
+  "description": "Tiptap table extra options like duplicate column, duplicate row etc...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomikMakavana/tiptap-table-plus.git"
+  },
+  "keywords": [
+    "tiptap",
+    "tiptap",
+    "extension"
+  ],
+  "author": "Romik Makavana",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RomikMakavana/tiptap-table-plus/issues"
+  },
+  "homepage": "https://github.com/RomikMakavana/tiptap-table-plus#readme",
+  "dependencies": {
+    "@tiptap/extension-table": "^2.6.6",
+    "@tiptap/pm": "^2.6.6"
+  }
+}
