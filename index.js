@@ -1,5 +1,6 @@
 import TiptapTable from '@tiptap/extension-table'
 import duplicateColumn from './commands/duplicateColumn';
+import duplicateRow from './commands/duplicateRow';
 
 export const Table = TiptapTable.extend({
     addCommands() {
@@ -7,6 +8,10 @@ export const Table = TiptapTable.extend({
             ...this.parent?.(),
             duplicateColumn: () => ({ state, dispatch }) => {
                 duplicateColumn(state, dispatch)
+                return true;
+            },
+            duplicateRow: () => ({ state, dispatch }) => {
+                duplicateRow(state, dispatch)
                 return true;
             },
         }

@@ -1,6 +1,6 @@
 {
   "name": "tiptap-table-plus",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tiptap table extra options like duplicate column, duplicate row etc...",
   "main": "index.js",
   "scripts": {
