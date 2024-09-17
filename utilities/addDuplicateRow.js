@@ -32,7 +32,7 @@ export default function addDuplicateRow(
                 refRow == null
                     ? tableNodeTypes(table.type.schema).cell
                     : table.nodeAt(map.map[index + refRow * map.width])?.type;
-            const node = _refRow !== null ? type?.create({ ..._refRow.attrs }, withContent ? _refRow.content : false) : type?.createAndFill();
+            const node = _refRow !== null ? (withContent ? type?.create({ ..._refRow.attrs }, _refRow.content) : type?.createAndFill({ ..._refRow.attrs })) : type?.createAndFill();
             if (node) cells.push(node);
         }
     }

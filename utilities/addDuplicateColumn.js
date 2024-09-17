@@ -31,7 +31,7 @@ export default function addDuplicateColumn(
                     ? tableNodeTypes(table.type.schema).cell
                     : table.nodeAt(map.map[index + refColumn]).type;
             const pos = map.positionAt(row, col, table);
-            tr.insert(tr.mapping.map(tableStart + pos), _refColumn !== null ? type.create({ ..._refColumn.attrs }, withContent ? _refColumn.content : null) : type.createAndFill());
+            tr.insert(tr.mapping.map(tableStart + pos), _refColumn !== null ? (withContent ? type.create({ ..._refColumn.attrs }, _refColumn.content) : type.createAndFill({ ..._refColumn.attrs })) : type.createAndFill());
         }
     }
     return tr;
