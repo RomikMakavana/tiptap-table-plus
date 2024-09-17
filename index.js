@@ -6,12 +6,12 @@ export const Table = TiptapTable.extend({
     addCommands() {
         return {
             ...this.parent?.(),
-            duplicateColumn: () => ({ state, dispatch }) => {
-                duplicateColumn(state, dispatch)
+            duplicateColumn: (withContent = true) => ({ state, dispatch }) => {
+                duplicateColumn(state, dispatch, withContent)
                 return true;
             },
-            duplicateRow: () => ({ state, dispatch }) => {
-                duplicateRow(state, dispatch)
+            duplicateRow: (withContent = true) => ({ state, dispatch }) => {
+                duplicateRow(state, dispatch, withContent)
                 return true;
             },
         }

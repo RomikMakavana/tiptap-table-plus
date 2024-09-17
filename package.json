@@ -1,6 +1,6 @@
 {
   "name": "tiptap-table-plus",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Tiptap table extra options like duplicate column, duplicate row etc...",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,7 @@
   },
   "keywords": [
     "tiptap",
-    "tiptap",
-    "extension"
+    "tiptap extension"
   ],
   "author": "Romik Makavana",
   "license": "MIT",

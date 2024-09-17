@@ -3,6 +3,7 @@ export default function addDuplicateRow(
     tr,
     { map, tableStart, table },
     row,
+    withContent = true
 ) {
     let rowPos = tableStart;
     for (let i = 0; i < row; i++) rowPos += table.child(i).nodeSize;
@@ -31,7 +32,7 @@ export default function addDuplicateRow(
                 refRow == null
                     ? tableNodeTypes(table.type.schema).cell
                     : table.nodeAt(map.map[index + refRow * map.width])?.type;
-            const node = _refRow !== null ? type?.create({ ..._refRow.attrs }, _refRow.content) : type?.createAndFill();
+            const node = _refRow !== null ? type?.create({ ..._refRow.attrs }, withContent ? _refRow.content : false) : type?.createAndFill();
             if (node) cells.push(node);
         }
     }

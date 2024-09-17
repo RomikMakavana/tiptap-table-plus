@@ -3,6 +3,7 @@ export default function addDuplicateColumn(
     tr,
     { map, tableStart, table },
     col,
+    withContent = true
 ) {
     let refColumn = col > 0 ? -1 : 0;
     if (columnIsHeader(map, table, col + refColumn)) {
@@ -30,7 +31,7 @@ export default function addDuplicateColumn(
                     ? tableNodeTypes(table.type.schema).cell
                     : table.nodeAt(map.map[index + refColumn]).type;
             const pos = map.positionAt(row, col, table);
-            tr.insert(tr.mapping.map(tableStart + pos), _refColumn !== null ? type.create({ ..._refColumn.attrs }, _refColumn.content) : type.createAndFill());
+            tr.insert(tr.mapping.map(tableStart + pos), _refColumn !== null ? type.create({ ..._refColumn.attrs }, withContent ? _refColumn.content : null) : type.createAndFill());
         }
     }
     return tr;
