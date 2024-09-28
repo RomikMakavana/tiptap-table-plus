@@ -18,7 +18,7 @@ npm install tiptap-table-plus
 This command duplicates the current column. By default, it copies the content of the column as well.
 
 ### Usage
-```
+```js
 editor.commands.duplicateColumn(true);
 ```
 
@@ -30,7 +30,7 @@ editor.commands.duplicateColumn(true);
 
 This command duplicates the current row. By default, it copies the content of the row as well.
 ### Usage
-```
+```js
 editor.commands.duplicateRow(true);
 ```
 
@@ -40,7 +40,7 @@ editor.commands.duplicateRow(true);
 
 # Example
 Here is an example of how to use these commands in your Tiptap editor setup:
-```
+```js
 import { Editor } from '@tiptap/core';
 import Table from '@tiptap/extension-table';
 import TableRow from '@tiptap/extension-table-row';
