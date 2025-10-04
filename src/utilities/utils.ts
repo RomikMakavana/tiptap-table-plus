@@ -22,14 +22,25 @@ export function findParentNodeOfTypeAtPos(
   doc: any,
   nodeType: NodeType
 ) {
-  const $pos = doc.resolve(pos);
-
-  for (let depth = $pos.depth; depth > 0; depth--) {
-    const node = $pos.node(depth);
-    if (node.type === nodeType) {
-      return { node, pos: $pos.before(depth) };
-    }
+  // Add validation to prevent out of range errors
+  if (pos < 0 || pos > doc.content.size) {
+    return null;
   }
+  
+  try {
+    const $pos = doc.resolve(pos);
+
+    for (let depth = $pos.depth; depth > 0; depth--) {
+      const node = $pos.node(depth);
+      if (node.type === nodeType) {
+        return { node, pos: $pos.before(depth) };
+      }
+    }
+  } catch (error) {
+    // If resolve fails, return null
+    return null;
+  }
+  
   return null;
 }
 
