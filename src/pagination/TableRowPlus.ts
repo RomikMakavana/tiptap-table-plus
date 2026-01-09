@@ -1,4 +1,4 @@
-import TableRow from "@tiptap/extension-table-row";
+import { TableRow } from "@tiptap/extension-table";
 
 export const TableRowPlus = TableRow.extend({
     addNodeView() {

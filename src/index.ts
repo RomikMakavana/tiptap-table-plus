@@ -1,5 +1,5 @@
-import PaginationTable from "./pagination";
-import { TablePlus } from "./TablePlus";
+import { PaginationTable } from "./pagination";
+import { WithoutPagination } from "./TablePlus";
 
 declare module "@tiptap/core" {
     interface Commands<ReturnType> {
@@ -9,5 +9,14 @@ declare module "@tiptap/core" {
       };
     }
   }
-  
-export { PaginationTable, TablePlus };
+
+  const  { TablePlus, TableKitPlus, TableCellPlus, TableHeaderPlus, TableRowPlus } = PaginationTable;
+
+export { 
+  WithoutPagination,
+  TablePlus,
+  TableKitPlus,
+  TableCellPlus,
+  TableHeaderPlus,
+  TableRowPlus,
+};

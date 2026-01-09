@@ -1,4 +1,4 @@
-import TableHeader from "@tiptap/extension-table-header";
+import { TableHeader } from "@tiptap/extension-table";
 
 export const TableHeaderPlus = TableHeader.extend({
     addNodeView() {

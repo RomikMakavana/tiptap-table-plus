@@ -1,4 +1,4 @@
-import Table from "@tiptap/extension-table";
+import { Table } from "@tiptap/extension-table";
 import { mergeAttributes } from "@tiptap/core";
 import { DOMOutputSpec } from "@tiptap/pm/model";
 import { TableRowGroup } from "./TableRowGroup";
@@ -14,13 +14,13 @@ export const TablePlus = Table.extend<TablePlusOptions>({
   content: "(tableRowGroup|tableRow)+",
   addOptions() {
     return {
-      ...this.parent?.(),
+      ...this.parent?.() ?? {},
       resizeHandleStyle: {
         background: "#353535",
       },
       minColumnSize: 50,
       borderColor: "black",
-    };
+    } as TablePlusOptions;
   },
   addExtensions() {
     return [

@@ -11,15 +11,41 @@ Documentation : https://romikmakavana.me/tiptap/table-plus
 
 ## Installation
 
-To install the package, use npm:
+This package supports both TipTap v2 and TipTap v3. Choose the appropriate installation command based on your TipTap version:
+
+### For TipTap v3 (Recommended)
 
 ```bash
+# Install latest version (defaults to TipTap v3)
 npm install tiptap-table-plus
+
+# Or explicitly install the tiptap-v3 tag
+npm install tiptap-table-plus@tiptap-v3
 ```
+
+### For TipTap v2
+
+```bash
+npm install tiptap-table-plus@tiptap-v2
+```
+
+**Note:** Both versions are maintained and updated with each release. The `latest` tag (default) points to the TipTap v3 compatible version.  
 
 ## Peer Dependencies
 
-This package works with peer dependencies and requires the following packages to be installed in your project:
+This package works with peer dependencies. The required packages differ based on your TipTap version:
+
+### For TipTap v3
+
+TipTap v3 bundles table extensions into a single package. Install the following:
+
+```bash
+npm install @tiptap/extension-table @tiptap/pm
+```
+
+### For TipTap v2
+
+TipTap v2 uses separate packages for each table extension. Install the following:
 
 ```bash
 npm install @tiptap/extension-table @tiptap/extension-table-cell @tiptap/extension-table-header @tiptap/extension-table-row @tiptap/pm
@@ -37,20 +63,42 @@ npm install @tiptap/extension-table @tiptap/extension-table-cell @tiptap/extensi
 
 ### Example
 
-Here is an example of how to use these commands in your Tiptap editor setup:
+Here are examples of how to use these commands in your Tiptap editor setup:
+
+#### For TipTap v3
+
+```js
+import { Editor } from '@tiptap/core';
+import { Table, TableRow, TableCell, TableHeader } from '@tiptap/extension-table';
+import { WithoutPagination } from 'tiptap-table-plus';
+
+const { TableKitPlus } = WithoutPagination;
+
+const editor = new Editor({
+  extensions: [
+    TableKitPlus
+  ],
+  content: '<table border="1"><tr><th colspan="1" rowspan="1"><p>Name</p></th><th colspan="1" rowspan="1"><p>Region</p></th><th colspan="1" rowspan="1"><p>Country</p></th></tr><tr><td colspan="1" rowspan="1"><p>Liberty Hays</p></td><td colspan="1" rowspan="1"><p>Araucanía</p></td><td colspan="1" rowspan="1"><p>Canada</p></td></tr></table>',
+});
+```
+
+#### For TipTap v2
+
 ```js
 import { Editor } from '@tiptap/core';
 import TableRow from '@tiptap/extension-table-row';
 import TableCell from '@tiptap/extension-table-cell';
 import TableHeader from '@tiptap/extension-table-header';
-import TiptapTablePlus from 'tiptap-table-plus';
+import { WithoutPagination } from 'tiptap-table-plus';
+
+const { TablePlus, TableRowPlus, TableCellPlus, TableHeaderPlus } = WithoutPagination;
 
 const editor = new Editor({
   extensions: [
-    TiptapTablePlus,
-    TableRow,
-    TableCell,
-    TableHeader,
+    TablePlus,
+    TableRowPlus,
+    TableCellPlus,
+    TableHeaderPlus,
   ],
   content: '<table border="1"><tr><th colspan="1" rowspan="1"><p>Name</p></th><th colspan="1" rowspan="1"><p>Region</p></th><th colspan="1" rowspan="1"><p>Country</p></th></tr><tr><td colspan="1" rowspan="1"><p>Liberty Hays</p></td><td colspan="1" rowspan="1"><p>Araucanía</p></td><td colspan="1" rowspan="1"><p>Canada</p></td></tr></table>',
 });
@@ -73,25 +121,36 @@ Tiptap Pagination : https://romikmakavana.me/tiptap/pagination-plus/
 - **Smart Pagination**: Automatically handles complex table layouts with merged cells
 - **CSS Custom Properties**: Provides CSS variables for styling and layout control
 - **Column Resize Support** – Allows users to interactively adjust column widths for better readability
-## Components
-
-### `PaginationTable`
-A comprehensive extension that includes all pagination table components:
-
-```js
-import { PaginationTable } from 'tiptap-table-plus';
-```
 
 ## Usage with Pagination
 
 Here's how to set up the pagination table extension:
 
+#### For TipTap v3
+
 ```js
 import { Editor } from '@tiptap/core';
-import { PaginationTable } from 'tiptap-table-plus';
+import { Table, TableRow, TableCell, TableHeader } from '@tiptap/extension-table';
+import { TableKitPlus } from 'tiptap-table-plus';
 import { PaginationPlus } from "tiptap-pagination-plus";
 
-const { TablePlus, TableRowPlus, TableCellPlus, TableHeaderPlus } = PaginationTable;
+const editor = new Editor({
+  extensions: [
+    TableKitPlus, // TipTap v3 only - includes TableRowPlus, TableCellPlus, TableHeaderPlus
+    PaginationPlus
+  ],
+  content: '<table border="1"><tr><th colspan="1" rowspan="1"><p>Name</p></th><th colspan="1" rowspan="1"><p>Region</p></th><th colspan="1" rowspan="1"><p>Country</p></th></tr><tr><td colspan="1" rowspan="1"><p>Liberty Hays</p></td><td colspan="1" rowspan="1"><p>Araucanía</p></td><td colspan="1" rowspan="1"><p>Canada</p></td></tr></table>',
+});
+```
+
+**Note for TipTap v3**: `TableKitPlus` is a convenience extension that includes `TableRowPlus`, `TableCellPlus`, and `TableHeaderPlus`. You can use either `TableKitPlus` or import the individual extensions separately.
+
+#### For TipTap v2
+
+```js
+import { Editor } from '@tiptap/core';
+import { TablePlus, TableRowPlus, TableCellPlus, TableHeaderPlus } from 'tiptap-table-plus';
+import { PaginationPlus } from "tiptap-pagination-plus";
 
 const editor = new Editor({
   extensions: [
