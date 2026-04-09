@@ -106,7 +106,7 @@ export class TablePlusNodeView {
         handle.style.top = "50%";
         handle.style.width = "12px";
         handle.style.height = "12px";
-        handle.style.zIndex = "9999";
+        handle.style.zIndex = "auto";
         handle.style.borderRadius = "50%";
         handle.style.transform = "translate(-50%, -50%)";
         handle.style.cursor = "ew-resize";
