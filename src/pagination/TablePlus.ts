@@ -1,13 +1,13 @@
 import Table from "@tiptap/extension-table";
 import { mergeAttributes } from "@tiptap/core";
 import { DOMOutputSpec } from "@tiptap/pm/model";
-import { TableRowGroup } from "./TableRowGroup.js";
-import { TableCommandExtension } from "../TableCommandExtension.js";
-import { TablePlusNodeView } from "./TablePlusNodeView.js";
-import { TablePlusOptions } from "./types.js";
+import { TableRowGroup } from "./TableRowGroup";
+import { TableCommandExtension } from "../TableCommandExtension";
+import { TablePlusNodeView } from "./TablePlusNodeView";
+import { TablePlusOptions } from "./types";
 import { Plugin, PluginKey } from "@tiptap/pm/state";
 import { ReplaceStep } from "prosemirror-transform";
-import { findParentNodeOfType, findParentNodeOfTypeAtPos, calculateNewColumnWidth, addColumns, isNodeAtRange, getColumnSizeList } from "../utilities/utils.js";
+import { findParentNodeOfType, findParentNodeOfTypeAtPos, calculateNewColumnWidth, addColumns, isNodeAtRange, getColumnSizeList } from "../utilities/utils";
 import { Node } from "@tiptap/pm/model";
 
 export const TablePlus = Table.extend<TablePlusOptions>({

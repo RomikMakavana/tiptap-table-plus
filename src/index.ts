@@ -1,5 +1,5 @@
-import { PaginationTable } from "./pagination/index.js";
-import { WithoutPagination } from "./TablePlus.js";
+import { PaginationTable } from "./pagination";
+import { WithoutPagination } from "./TablePlus";
 
 declare module "@tiptap/core" {
     interface Commands<ReturnType> {

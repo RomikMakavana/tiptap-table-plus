@@ -1,7 +1,7 @@
-import { TablePlus } from './TablePlus.js'
-import { TableCellPlus } from './TableCellPlus.js'
-import { TableHeaderPlus } from './TableHeaderPlus.js'
-import { TableRowPlus } from './TableRowPlus.js'
+import { TablePlus } from './TablePlus'
+import { TableCellPlus } from './TableCellPlus'
+import { TableHeaderPlus } from './TableHeaderPlus'
+import { TableRowPlus } from './TableRowPlus'
 
 export const PaginationTable = {
     TablePlus,
