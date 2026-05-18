@@ -1,6 +1,6 @@
 import { Extension } from "@tiptap/core";
-import duplicateColumn from "./commands/duplicateColumn";
-import duplicateRow from "./commands/duplicateRow";
+import duplicateColumn from "./commands/duplicateColumn.js";
+import duplicateRow from "./commands/duplicateRow.js";
 
 export const TableCommandExtension = Extension.create({
   name: "tableCommandExtension",
