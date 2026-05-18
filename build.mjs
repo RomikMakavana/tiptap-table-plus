@@ -1,4 +1,4 @@
-import esbuild from "esbuild";
+import { build } from "rolldown";
 
 const external = [
   "@tiptap/core",
@@ -13,24 +13,16 @@ const external = [
   "prosemirror-transform",
 ];
 
-// ESM bundle
-await esbuild.build({
-  entryPoints: ["src/index.ts"],
-  bundle: true,
-  format: "esm",
-  outfile: "dist/index.js",
+await build({
+  input: "src/index.ts",
   external,
-  sourcemap: false,
+  output: { file: "dist/index.js", format: "esm" },
 });
 
-// CJS bundle for legacy consumers
-await esbuild.build({
-  entryPoints: ["src/index.ts"],
-  bundle: true,
-  format: "cjs",
-  outfile: "dist/index.cjs",
+await build({
+  input: "src/index.ts",
   external,
-  sourcemap: false,
+  output: { file: "dist/index.cjs", format: "cjs" },
 });
 
 console.log("Build complete.");

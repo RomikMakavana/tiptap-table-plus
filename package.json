@@ -52,7 +52,7 @@
     "@tiptap/extension-table-row": "^2.26.1",
     "@tiptap/pm": "^2.26.1",
     "@types/node": "^22.15.2",
-    "esbuild": "^0.28.0",
+    "rolldown": "^1.0.1",
     "tsc-watch": "^6.0.4",
     "typescript": "^5.8.3"
   }
