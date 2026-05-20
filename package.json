@@ -43,7 +43,10 @@
     "@tiptap/extension-table-header": "^2.26.1",
     "@tiptap/extension-table-row": "^2.26.1",
     "@tiptap/pm": "^2.26.1",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22.15.2",
+    "jest": "^30.4.2",
+    "ts-jest": "^29.4.10",
     "tsc-watch": "^6.0.4",
     "typescript": "^5.8.3"
   }
