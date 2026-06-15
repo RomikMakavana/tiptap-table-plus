@@ -56,7 +56,7 @@ export class TablePlusNodeView {
         let percent = Math.min(Math.max((x / rect.width) * 100, 0), 100);
 
         if (handleIndex > 0) {
-          let previousPixel = (parseFloat(this.handles[handleIndex - 1].style.left) * x / percent) + this.options.minColumnSize;
+          let previousPixel = (parseFloat(this.handles[handleIndex - 1].style.left) * rect.width / 100) + this.options.minColumnSize;
           if(x < previousPixel) {
             percent = Math.min(Math.max((previousPixel / rect.width) * 100, 0), 100);
           }
@@ -66,7 +66,7 @@ export class TablePlusNodeView {
           );
         }
         if (handleIndex < this.handles.length - 1) {
-          let nextPixel = (parseFloat(this.handles[handleIndex + 1].style.left) * x / percent) - this.options.minColumnSize;
+          let nextPixel = (parseFloat(this.handles[handleIndex + 1].style.left) * rect.width / 100) - this.options.minColumnSize;
           if(x > nextPixel) {
             percent = Math.min(Math.max((nextPixel / rect.width) * 100, 0), 100);
           }
